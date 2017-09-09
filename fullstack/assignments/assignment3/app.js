@@ -30,27 +30,27 @@
             menu.found.splice(itemIndex, 1);
         }
     }
-	
-	 function FoundItems() {
-        var ddo = {
-            restrict: 'E',
-            templateUrl: 'foundItems.html',
-            scope: {
-                foundItems: '<',
-                onEmpty: '<',
-                onRemove: '&'
-            },
-            controller: NarrowItDownController,
-            controllerAs: 'menu',
-            bindToController: true
-        };
 
-        return ddo;
-    }
+    function FoundItems() {
+            var ddo = {
+                restrict: 'E',
+                templateUrl: 'foundItems.html',
+                scope: {
+                    foundItems: '<',
+                    onEmpty: '<',
+                    onRemove: '&'
+                },
+                controller: NarrowItDownController,
+                controllerAs: 'menu',
+                bindToController: true
+            };
 
+            return ddo;
+        }
+        
     MenuSearchService.$inject = ['$http'];
 
-    function MenuSearchService($http, 'https://davids-restaurant.herokuapp.com') {
+    function MenuSearchService($http) {
         var service = this;
 
         service.getMatchedMenuItems = function(searchTerm) {
