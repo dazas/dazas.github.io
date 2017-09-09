@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" ng-app="NarrowItDownApp">
+  <head>
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<link rel="stylesheet" href="../../styles/styles.css">
+	</head>
+	<body>
+   <div class="container" ng-controller="NarrowItDownController as found">
+        <h1>Narrow Down Your Chinese Menu Choice</h1>
+        <div class="search">
+            <input type="text" placeholder="search term" class="form-control" ng-model="found.shortName">
+            <div class="narrow-button">
+                <button class="btn btn-primary" ng-click="found.matchedMenuItems(found.shortName)">Narrow It Down For Me!</button>
+            </div>
+        </div>
+        <found-items found-items="found.found" on-remove="found.removeMenuItem(index)" on-empty="found.message"></found-items>
+    </div>
+    <script src="../../scripts/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
