@@ -50,7 +50,7 @@
 
     MenuSearchService.$inject = ['$http'];
 
-    function MenuSearchService($http, "https://davids-restaurant.herokuapp.com") {
+    function MenuSearchService($http, 'https://davids-restaurant.herokuapp.com') {
         var service = this;
 
         service.getMatchedMenuItems = function(searchTerm) {
