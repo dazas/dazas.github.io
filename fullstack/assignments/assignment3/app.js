@@ -6,34 +6,33 @@
         .service('MenuSearchService', MenuSearchService)
         .directive('foundItems', FoundItems);
 
-
     NarrowItDownController.$inject = ['MenuSearchService'];
 
     function NarrowItDownController(MenuSearchService) {
-        var found = this;
-        found.shortName = '';
+        var menu = this;
+        menu.shortName = '';
 
-        found.matchedMenuItems = function(searchTerm) {
+        menu.matchedMenuItems = function(searchTerm) {
             var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
 
             promise.then(function(items) {
                 if (items && items.length > 0) {
-                    found.message = '';
-                    found.found = items;
+                    menu.message = '';
+                    menu.found = items;
                 } else {
-                    found.message = 'Nothing found!';
-                    found.found = [];
+                    menu.message = 'Nothing found!';
+                    menu.found = [];
                 }
             });
         };
 
-        found.removeMenuItem = function(itemIndex) {
-            found.found.splice(itemIndex, 1);
+        menu.removeMenuItem = function(itemIndex) {
+            menu.found.splice(itemIndex, 1);
         }
     }
-
-	function FoundItems() {
-        var items = {
+	
+	 function FoundItems() {
+        var ddo = {
             restrict: 'E',
             templateUrl: 'foundItems.html',
             scope: {
@@ -42,18 +41,16 @@
                 onRemove: '&'
             },
             controller: NarrowItDownController,
-            controllerAs: 'found',
+            controllerAs: 'menu',
             bindToController: true
         };
 
-        return items;
+        return ddo;
     }
 
-	
-	
     MenuSearchService.$inject = ['$http'];
 
-    function MenuSearchService($http) {
+    function MenuSearchService($http, "https://davids-restaurant.herokuapp.com") {
         var service = this;
 
         service.getMatchedMenuItems = function(searchTerm) {
@@ -64,9 +61,10 @@
                 var foundItems = [];
 
                 for (var i = 0; i < response.data['menu_items'].length; i++) {
-                    foundItems.push(response.data['menu_items'][i]);
+                    if (searchTerm.length > 0 && response.data['menu_items'][i]['description'].toLowerCase().indexOf(searchTerm) !== -1) {
+                        foundItems.push(response.data['menu_items'][i]);
+                    }
                 }
-
                 return foundItems;
             });
         };

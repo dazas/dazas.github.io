@@ -9,17 +9,16 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 	</head>
 	<body>
-	   <div class="container" ng-controller="NarrowItDownController as found">
+	   <div class="container" ng-controller="NarrowItDownController as menu">
 			<h1>Narrow Down Your Chinese Menu Choice</h1>
-			<div class="search">
 				<div class="input-group">
-				  <input type="text" class="form-control" placeholder="Search in menu" class="form-control" ng-model="found.shortName" />
+				  <input type="text" class="form-control" placeholder="Search in menu" class="form-control" ng-model="menu.shortName" />
 				<span class="input-group-btn">
-					<button type="button" class="btn btn-primary" ng-click="found.matchedMenuItems(found.shortName)">Narrow It Down For Me!</button>
+					<button type="button" class="btn btn-primary" ng-click=""menu.matchedMenuItems(menu.shortName)">Narrow It Down For Me!</button>
 				</span>
 				</div>
-				</div>
-			<found-items found-items="found.found" on-remove="found.removeMenuItem(index)" on-empty="found.message"></found-items>
+				
+			<found-items found-items="menu.found" on-remove="menu.removeMenuItem(index)" on-empty="menu.message"></found-items>
 		</div>
 		<script src="../../scripts/angular.min.js"></script>
 		<script src="app.js"></script>
