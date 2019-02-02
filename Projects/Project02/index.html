@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="ShoppingListCheckOff">
+  <head>
+    <meta charser="utf-8">
+    <title>Shopping List Check Off</title>
+    <script src="../../assets/angular.min.js"></script>
+    <script src="../../assets/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../assets/styles/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/styles/styles.css">
+   </head>
+  <body>
+    <h1>Shopping List Check Off</h1>
+    <div class="row">
+      <!-- LIST To Buy -->
+      <div class="col-md-6" id="listToBuy" ng-controller='ToBuyController as listToBuy'>
+        <h3>List To Buy</h3>
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="item in listToBuy.items">
+            Buy {{ item.quantity }} {{ item.name }}
+            <button class="pull-right btn-primary" ng-click="listToBuy.buyItem($index);">
+              <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+              Bought
+            </button>
+          </li>
+        </ul>
+        <div ng-if="listToBuy.items.length === 0">Everything is bought!</div>
+      </div>
+      <!-- LIST Already bougth -->
+      <div  class="col-md-6" id="boughtList" ng-controller='AlreadyBoughtController as boughtList'>
+        <h3>Already Bought</h3>
+        <div ng-if="boughtList.items.length === 0">Nothing bought yet</div>
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="item in boughtList.items">
+            {{ item.quantity }} {{ item.name }}
+            <!-- I have expanded the task a little -->
+            <button class="pull-right btn-primary btn-danger" ng-click="boughtList.removeItem($index);"> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="ShoppingListCheckOff">
+  <head>
+    <meta charser="utf-8">
+    <title>Lunch Order</title>
+    <script src="../../assets/angular.min.js"></script>
+    <script src="../../assets/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../assets/styles/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/styles/styles.css">
+   </head>
+  <body>
+    <div class="container">
+      <h1>Lunch Order</h1>
+      <div ng-controller="LunchCheckController">
+        <form>
+          <div class="{{noticeType}}" id="message" ng-hide="!showMessage"><span>{{lenght}}{{message}}</span></div>
+          <div class="form-group">
+            <label for="items">Enter Food Items:</label>
+            <input type="text" ng-model="items" class="form-control" placeholder="List comma separated dishes you usually have for lunch">
+          </div>
+          <button class="btn btn-primary" type="submit" ng-click="checkLunchItems(); showMessage.booleanVal = !showMessage.booleanVal">Check if too much</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
