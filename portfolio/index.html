@@ -406,6 +406,7 @@
       </div>
       <div class="row">
         <div class="col-lg-12">
+          <!--
           <form id="contactForm" name="sentMessage" novalidate="novalidate">
             <div class="row">
               <div class="col-md-6">
@@ -434,6 +435,19 @@
                 <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
               </div>
             </div>
+          </form>
+          -->
+          <form action="https://formspree.io/f/xbjwbbar" method="POST">
+            <label>
+              Your email:
+              <input type="email" name="email">
+            </label>
+            <label>
+              Your message:
+              <textarea name="message"></textarea>
+            </label>
+            <!-- your other form fields go here -->
+            <button type="submit">Send</button>
           </form>
         </div>
       </div>

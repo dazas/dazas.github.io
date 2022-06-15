@@ -1,5 +1,4 @@
 <?php
-/*
 if(empty($_POST['name'])      ||
    empty($_POST['email'])     ||
    empty($_POST['phone'])     ||
@@ -23,20 +22,4 @@ $headers = "From: noreply@donkatodorova.com\n"; // This is the email address the
 $headers .= "Reply-To: $email_address";   
 mail($to,$email_subject,$email_body,$headers);
 return true;    
-*/
-
-
-<!-- modify this form HTML and place wherever you want your form -->
-<form action="https://formspree.io/f/xbjwbbar" method="POST">
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
-</form>
 ?>
