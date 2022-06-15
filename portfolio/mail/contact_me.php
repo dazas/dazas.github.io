@@ -1,5 +1,5 @@
 <?php
-// Check for empty fields
+/*
 if(empty($_POST['name'])      ||
    empty($_POST['email'])     ||
    empty($_POST['phone'])     ||
@@ -22,5 +22,21 @@ $email_body = "You have received a new message from your website contact form.\n
 $headers = "From: noreply@donkatodorova.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
 $headers .= "Reply-To: $email_address";   
 mail($to,$email_subject,$email_body,$headers);
-return true;         
+return true;    
+*/
+
+
+<!-- modify this form HTML and place wherever you want your form -->
+<form action="https://formspree.io/f/xbjwbbar" method="POST">
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
 ?>
